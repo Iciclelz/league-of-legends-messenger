@@ -1,0 +1,30 @@
+﻿<Controls:MetroWindow x:Name="metroWindow" x:Class="League_of_Legends_Messenger.Windows.OptionsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:League_of_Legends_Messenger.Windows"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        TitleCaps="False"
+        Title="Options" Height="150.294" Width="500" ResizeMode="NoResize" >
+    <Grid>
+        <Label Content="api key: " HorizontalAlignment="Left" Margin="14,8,0,0" VerticalAlignment="Top"/>
+        <Label Content="server: " HorizontalAlignment="Left" Margin="14,45,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="apiButton" Content="?" HorizontalAlignment="Left" Margin="458,11,0,0" VerticalAlignment="Top" Width="26" Height="18" Click="apiButton_Click"/>
+        <PasswordBox x:Name="apiPasswordBox" HorizontalAlignment="Left" Margin="72,10,0,0" VerticalAlignment="Top" Width="381"/>
+        <ComboBox x:Name="serverComboBox" HorizontalAlignment="Left" Margin="72,45,0,0" VerticalAlignment="Top" Width="412" IsReadOnly="True" SelectedIndex="0">
+            <ComboBoxItem Content="North America"/>
+            <ComboBoxItem Content="EU West"/>
+            <ComboBoxItem Content="EU Nordic and East"/>
+            <ComboBoxItem Content="Oceania"/>
+            <ComboBoxItem Content="Korea"/>
+            <ComboBoxItem Content="Brazil"/>
+            <ComboBoxItem Content="Russia"/>
+            <ComboBoxItem Content="Turkey"/>
+        </ComboBox>
+        <Button x:Name="okButton" Content="OK" HorizontalAlignment="Left" Margin="329,86,0,0" VerticalAlignment="Top" Width="75" Click="okButton_Click"/>
+        <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="409,86,0,0" VerticalAlignment="Top" Width="75" Click="cancelButton_Click"/>
+
+    </Grid>
+</Controls:MetroWindow>

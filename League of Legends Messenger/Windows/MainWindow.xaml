@@ -1,0 +1,69 @@
+﻿<Controls:MetroWindow x:Name="mainWindow" x:Class="League_of_Legends_Messenger.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:League_of_Legends_Messenger.Windows"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        TitleCaps="False"
+        Title="League of Legends Messenger" Height="700" Width="1200" WindowState="Maximized" Loaded="mainWindow_Loaded" Closing="mainWindow_Closing" Icon="/League of Legends Messenger;component/league-of-legends-messenger.ico">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Label x:Name="serverNameLabel" Foreground="White"/>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <Menu Height="20" VerticalAlignment="Top">
+            <Menu.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/VS/Colors.xaml" />
+                        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/VS/Styles.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </Menu.Resources>
+            <MenuItem Header="File">
+                <MenuItem x:Name="saveAsMenuItem" Header="Save Chatlog As..." Click="saveAsMenuItem_Click"/>
+                <Separator/>
+                <MenuItem x:Name="exitMenuItem" Header="Exit"  Click="exitMenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="View">
+                <MenuItem Header="Theme">
+                    <MenuItem x:Name="lightMenuItem" Header="Light" IsCheckable="True" Checked="lightMenuItem_Checked" Unchecked="lightMenuItem_Unchecked"/>
+                    <MenuItem x:Name="darkMenuItem" Header="Dark" IsCheckable="True" Checked="darkMenuItem_Checked" Unchecked="darkMenuItem_Unchecked"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Tools">
+                <MenuItem x:Name="optionsMenuItem" Header="Options..." Click="optionsMenuItem_Click"/>
+                <MenuItem x:Name="statusSettingsMenuItem" Header="Status Settings" Click="statusSettingsMenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem x:Name="aboutMenuItem" Header="About League of Legends Messenger" Click="aboutMenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <TreeView x:Name="treeView" Margin="0,20,0,20" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Left" Width="300" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Visible" MouseDoubleClick="treeView_MouseDoubleClick" SelectedItemChanged="treeView_SelectedItemChanged">
+            <TreeViewItem x:Name="onlineTreeViewItem">
+                <TreeViewItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="20" Width="20" HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="HighQuality" Source="/League of Legends Messenger;component/Resource/online.png" />
+                        <Label Content="Online"/>
+                    </StackPanel>
+                </TreeViewItem.Header>
+            </TreeViewItem>
+            <TreeViewItem x:Name="offlineTreeViewItem">
+                <TreeViewItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="20" Width="20" HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="HighQuality" Source="/League of Legends Messenger;component/Resource/offline.png" />
+                        <Label Content="Offline"/>
+                    </StackPanel>
+                </TreeViewItem.Header>
+            </TreeViewItem>
+        </TreeView>
+        <Controls:MetroAnimatedSingleRowTabControl x:Name="tabControl" Margin="300,20,0,20" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" AllowDrop="True" Drop="tabControl_Drop"/>
+        <StatusBar x:Name="statusBar" Height="20" Margin="0,0,0,0" VerticalAlignment="Bottom">
+        <StatusBarItem DockPanel.Dock="Right" x:Name="divisionStatusBarItem"/>
+        <StatusBarItem x:Name="summonerStatusBarItem"/>
+        </StatusBar>
+    </Grid>
+</Controls:MetroWindow>
